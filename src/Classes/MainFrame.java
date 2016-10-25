@@ -1,3 +1,5 @@
+package Classes;
+
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +17,8 @@ public class MainFrame {
 
 	private JFrame frmMyMusicPlayer;
 	private MP3Player mp3Player = new MP3Player();
-	JLabel lblNewLabel = new JLabel("Music:");
+	private JLabel lblNewLabel = new JLabel("Music:");
+	private PlayerMethods playerMethods = new PlayerMethods();
 
 	/**
 	 * Launch the application.
@@ -25,6 +28,7 @@ public class MainFrame {
 			public void run() {
 				try {
 					MainFrame window = new MainFrame();
+					
 					window.frmMyMusicPlayer.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,9 +42,6 @@ public class MainFrame {
 	 */
 	public MainFrame() {
 		initialize();
-		
-		
-		
 	}
 
 	/**
@@ -61,10 +62,8 @@ public class MainFrame {
 		btnPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("I clicked the button play");
-				// new MP3Player(new
-				// File("C:\\Users\\Martin\\Desktop\\Nackademin\\Crazy Frog -
-				// Axel F.mp3")).play();
-				mp3Player.play();
+				playerMethods.myPlay();
+				
 			}
 		});
 		frmMyMusicPlayer.getContentPane().setLayout(null);
@@ -76,8 +75,7 @@ public class MainFrame {
 		btnStop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("I clicked the button stop");
-				//new MP3Player(new File("C:\\Users\\Martin\\Desktop\\Nackademin\\Crazy Frog - Axel F.mp3")).stop();
-				mp3Player.stop();
+				playerMethods.myStop();
 			}
 		});
 		btnStop.setBounds(12, 168, 97, 25);
@@ -89,38 +87,42 @@ public class MainFrame {
 		btnPause.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("I clicked the button pause");
-				//new MP3Player(new File("C:\\Users\\Martin\\Desktop\\Nackademin\\Crazy Frog - Axel F.mp3")).pause();
-				mp3Player.pause();
+				playerMethods.myPause();
+				
 			}
 		});
 		btnPause.setBounds(163, 104, 97, 25);
 		frmMyMusicPlayer.getContentPane().add(btnPause);
-
+		
 		JButton btnOpen = new JButton("");
 		btnOpen.setBackground(Color.WHITE);
 		btnOpen.setIcon(new ImageIcon("C:\\Users\\Martin\\Desktop\\Nackademin\\icons\\openp.jpg"));
 		btnOpen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("I clicked the button open!");
+				playerMethods.myStop();
 
 				JFileChooser fileChooser = new JFileChooser();
 				int returnVal = fileChooser.showOpenDialog(btnOpen);
 				if (returnVal == JFileChooser.APPROVE_OPTION) {
 					File file = fileChooser.getSelectedFile();
 					mp3Player = new MP3Player(file);
+					playerMethods.setMp3Player(mp3Player);
+					playerMethods.myOpen();
+					
+					
 					System.out.println(file.getAbsolutePath());
+					
 					lblNewLabel.setText(file.getName().toString());
 				}
 			}
 		});
 		btnOpen.setBounds(163, 168, 97, 25);
 		frmMyMusicPlayer.getContentPane().add(btnOpen);
+		
 
 		lblNewLabel.setBounds(12, 13, 248, 16);
 		frmMyMusicPlayer.getContentPane().add(lblNewLabel);
-		
-		
 		frmMyMusicPlayer.setVisible(true);
-		
 	}
 }
