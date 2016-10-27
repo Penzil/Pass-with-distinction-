@@ -1,5 +1,11 @@
+/**
+ * auther: Martin Palman
+ * version: 1.0
+ */
 package Classes;
-
+/**
+ * Har importerar vi 
+ */
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,24 +27,7 @@ public class MainFrame {
 	private PlayerMethods playerMethods = new PlayerMethods();
 
 	/**
-	 * Launch the application.
-	 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainFrame window = new MainFrame();
-					
-					window.frmMyMusicPlayer.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-
-	/**
-	 * Create the application.
+	 * Har skapar jag programmet
 	 */
 	public MainFrame() {
 		initialize();

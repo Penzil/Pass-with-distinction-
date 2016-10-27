@@ -1,20 +1,28 @@
+/**
+ * auther: Martin Palman
+ * version: 1.0
+ */
 package Classes;
-
+/**
+ * Har importerar vi 
+ */
 import Interface.PlayerInterface;
 import jaco.mp3.player.MP3Player;
-
 import java.io.File;
-
 import javax.swing.JFileChooser;
-
 import Classes.MainFrame;
 
 
 public class PlayerMethods implements PlayerInterface{
 
-	
+/**
+ * Har har vi en konstruktor av MP3Player	
+ */
 	private MP3Player mp3Player = new MP3Player();
-
+/**
+ * 
+ * Getters och Setters
+ */
 	public MP3Player getMp3Player() {
 		return mp3Player;
 	}
@@ -24,7 +32,9 @@ public class PlayerMethods implements PlayerInterface{
 	}
 
 	
-	 
+/**
+ * 	 
+ */
 	public void myPlay() {
 		mp3Player.play();
 		
