@@ -19,6 +19,7 @@ public class PlayerMethods implements PlayerInterface{
  * Har har vi en konstruktor av MP3Player	
  */
 	private MP3Player mp3Player = new MP3Player();
+	
 /**
  * 
  * Getters och Setters
@@ -33,7 +34,7 @@ public class PlayerMethods implements PlayerInterface{
 
 	
 /**
- * 	 
+ * ?	 
  */
 	public void myPlay() {
 		mp3Player.play();
@@ -50,6 +51,7 @@ public class PlayerMethods implements PlayerInterface{
 	public void myOpen(){	
 		mp3Player.stop();
 		mp3Player.play();
+		
 			
 		}
 	}
