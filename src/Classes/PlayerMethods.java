@@ -8,18 +8,18 @@ package Classes;
  */
 import Interface.PlayerInterface;
 import jaco.mp3.player.MP3Player;
-import java.io.File;
-import javax.swing.JFileChooser;
-import Classes.MainFrame;
+
 
 
 public class PlayerMethods implements PlayerInterface{
-
+	private MP3Player mp3Player;
 /**
  * Har har vi en konstruktor av MP3Player	
  */
-	private MP3Player mp3Player = new MP3Player();
+	public PlayerMethods() {
+		
 	
+	}
 /**
  * 
  * Getters och Setters
@@ -51,6 +51,7 @@ public class PlayerMethods implements PlayerInterface{
 	public void myOpen(){	
 		mp3Player.stop();
 		mp3Player.play();
+		
 		
 			
 		}

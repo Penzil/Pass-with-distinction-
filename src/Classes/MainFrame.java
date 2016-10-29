@@ -3,6 +3,7 @@
  * version: 1.0
  */
 package Classes;
+
 /**
  * Har importerar vi 
  */
@@ -21,117 +22,28 @@ import javax.swing.ImageIcon;
 
 public class MainFrame {
 
-	//private JFrame frmMyMusicPlayer;
-	private MP3Player mp3Player = new MP3Player();
+	// private JFrame frmMyMusicPlayer;
+	private MP3Player mp3Player = null;
 	private JLabel lblNewLabel = new JLabel("Music:");
 	private PlayerMethods playerMethods = new PlayerMethods();
 
-	
 	/**
 	 * Har skapar jag programmet
 	 */
 
-	/*public MainFrame() {
-		initialize();
-	}
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	/*
-	private void initialize() {
-		frmMyMusicPlayer = new JFrame();
-		frmMyMusicPlayer.setBackground(new Color(255, 255, 204));
-		frmMyMusicPlayer.getContentPane().setBackground(new Color(204, 255, 204));
-		frmMyMusicPlayer.setTitle("My Music Player");
-		frmMyMusicPlayer.setBounds(100, 100, 290, 275);
-		frmMyMusicPlayer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		JButton btnPlay = new JButton("");
-		btnPlay.setBackground(Color.WHITE);
-		btnPlay.setIcon(new ImageIcon("C:\\Users\\Martin\\Desktop\\Nackademin\\icons\\playp.jpg"));
-		btnPlay.setBounds(12, 104, 97, 25);
-		btnPlay.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				System.out.println("I clicked the button play");
-				playerMethods.myPlay();
-				
-			}
-		});
-		frmMyMusicPlayer.getContentPane().setLayout(null);
-		frmMyMusicPlayer.getContentPane().add(btnPlay);
-
-		JButton btnStop = new JButton("");
-		btnStop.setBackground(Color.WHITE);
-		btnStop.setIcon(new ImageIcon("C:\\Users\\Martin\\Desktop\\Nackademin\\icons\\stopp.jpg"));
-		btnStop.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("I clicked the button stop");
-				playerMethods.myStop();
-			}
-		});
-		btnStop.setBounds(12, 168, 97, 25);
-		frmMyMusicPlayer.getContentPane().add(btnStop);
-
-		JButton btnPause = new JButton("");
-		btnPause.setBackground(Color.WHITE);
-		btnPause.setIcon(new ImageIcon("C:\\Users\\Martin\\Desktop\\Nackademin\\icons\\pausep.jpg"));
-		btnPause.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("I clicked the button pause");
-				playerMethods.myPause();
-				
-			}
-		});
-		btnPause.setBounds(163, 104, 97, 25);
-		frmMyMusicPlayer.getContentPane().add(btnPause);
-		
-		JButton btnOpen = new JButton("");
-		btnOpen.setBackground(Color.WHITE);
-		btnOpen.setIcon(new ImageIcon("C:\\Users\\Martin\\Desktop\\Nackademin\\icons\\openp.jpg"));
-		btnOpen.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("I clicked the button open!");
-				playerMethods.myStop();
-
-				JFileChooser fileChooser = new JFileChooser();
-				int returnVal = fileChooser.showOpenDialog(btnOpen);
-				if (returnVal == JFileChooser.APPROVE_OPTION) {
-					File file = fileChooser.getSelectedFile();
-					mp3Player = new MP3Player(file);
-					playerMethods.setMp3Player(mp3Player);
-					playerMethods.myOpen();
-					
-					
-					System.out.println(file.getAbsolutePath());
-					
-					lblNewLabel.setText(file.getName().toString());
-				}
-			}
-		});
-		btnOpen.setBounds(163, 168, 97, 25);
-		frmMyMusicPlayer.getContentPane().add(btnOpen);
-		
-
-		lblNewLabel.setBounds(12, 13, 248, 16);
-		frmMyMusicPlayer.getContentPane().add(lblNewLabel);
-		frmMyMusicPlayer.setVisible(true);
-	}
-}*/
-	
 	private JFrame frmMyMusicPlayer;
-	JButton btnPlay = new JButton("");
-	JButton btnStop = new JButton("");
-	JButton btnPause = new JButton("");
-	JButton btnOpen = new JButton("");
-	
-	ActionListener actionListener = new ActionListener(){
-		@Override
+	JButton btnPlay = new JButton("Play");
+	JButton btnStop = new JButton("Stop");
+	JButton btnPause = new JButton("Pause");
+	JButton btnOpen = new JButton("Open");
+
+	ActionListener actionListener = new ActionListener() {
+		
 		public void actionPerformed(ActionEvent e) {
 			buttonPressed(e);
-		}		
+		}
 	};
-	
-	
+
 	public MainFrame() {
 		initialize();
 	}
@@ -140,89 +52,86 @@ public class MainFrame {
 		frmMyMusicPlayer = new JFrame();
 		frmMyMusicPlayer.setBackground(new Color(255, 255, 204));
 		frmMyMusicPlayer.getContentPane().setBackground(new Color(204, 255, 204));
-		
+
 		frmMyMusicPlayer.setTitle("My Music Player");
 		frmMyMusicPlayer.setBounds(100, 100, 290, 275);
-		frmMyMusicPlayer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);	
+		frmMyMusicPlayer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmMyMusicPlayer.getContentPane().setLayout(null);
-		
+
 		btnPlay.setBounds(12, 104, 97, 25);
 		btnStop.setBounds(12, 168, 97, 25);
 		btnPause.setBounds(163, 104, 97, 25);
 		btnOpen.setBounds(163, 168, 97, 25);
-		
+
+		btnPlay.setEnabled(false);
+		btnStop.setEnabled(false);
+		btnPause.setEnabled(false);
+
 		btnPlay.setBackground(Color.WHITE);
 		btnStop.setBackground(Color.WHITE);
 		btnPause.setBackground(Color.WHITE);
 		btnOpen.setBackground(Color.WHITE);
-		
-		btnPlay.setIcon(new ImageIcon("C:\\Users\\Martin\\Desktop\\Nackademin\\icons\\playp.jpg"));
-		btnStop.setIcon(new ImageIcon("C:\\Users\\Martin\\Desktop\\Nackademin\\icons\\stopp.jpg"));
-		btnPause.setIcon(new ImageIcon("C:\\Users\\Martin\\Desktop\\Nackademin\\icons\\pausep.jpg"));
-		btnOpen.setIcon(new ImageIcon("C:\\Users\\Martin\\Desktop\\Nackademin\\icons\\openp.jpg"));
-		
-		
+
 		lblNewLabel.setBounds(12, 13, 248, 16);
 		frmMyMusicPlayer.getContentPane().add(lblNewLabel);
 		frmMyMusicPlayer.setVisible(true);
-		
+
 		addComponentsToFrame();
 		addActionListerners();
 	}
-	
-	public void addComponentsToFrame(){
-		 frmMyMusicPlayer.getContentPane().add(btnPlay);
-		 frmMyMusicPlayer.getContentPane().add(btnStop);
-		 frmMyMusicPlayer.getContentPane().add(btnPause);
-		 frmMyMusicPlayer.getContentPane().add(btnOpen);
+
+	public void addComponentsToFrame() {
+		frmMyMusicPlayer.getContentPane().add(btnPlay);
+		frmMyMusicPlayer.getContentPane().add(btnStop);
+		frmMyMusicPlayer.getContentPane().add(btnPause);
+		frmMyMusicPlayer.getContentPane().add(btnOpen);
 	}
-	
-	public void addActionListerners(){
+
+	public void addActionListerners() {
 		btnPlay.addActionListener(actionListener);
-		btnStop.addActionListener(actionListener); 
+		btnStop.addActionListener(actionListener);
 		btnPause.addActionListener(actionListener);
 		btnOpen.addActionListener(actionListener);
 	}
-	
+
 	public void buttonPressed(ActionEvent arg0) {
-		if (arg0.getSource()== btnPlay){
-			System.out.println("click on play");
+		if (arg0.getSource() == btnPlay) {
 			playerMethods.myPlay();
 		}
-	
-	 
-		if (arg0.getSource()== btnStop){
-			System.out.println("click on stop");
+
+		if (arg0.getSource() == btnStop) {
 			playerMethods.myStop();
 		}
-		if (arg0.getSource()== btnPause){
-			System.out.println("click on pause");
+		if (arg0.getSource() == btnPause) {
 			playerMethods.myPause();
-			
+
 		}
-		if (arg0.getSource()== btnOpen){
-			System.out.println("click on open");
-			playerMethods.myOpen();
-			
+		if (arg0.getSource() == btnOpen) {
+
+			if (mp3Player != null) {
+				playerMethods.myStop();
+			}
+
 			JFileChooser fileChooser = new JFileChooser();
 			int returnVal = fileChooser.showOpenDialog(btnOpen);
 			if (returnVal == JFileChooser.APPROVE_OPTION) {
+				btnPlay.setEnabled(true);
+				btnPause.setEnabled(true);
+				btnStop.setEnabled(true);
+
 				File file = fileChooser.getSelectedFile();
 				mp3Player = new MP3Player(file);
 				playerMethods.setMp3Player(mp3Player);
-				
-				
-				
-				System.out.println(file.getAbsolutePath());
-				
+
 				lblNewLabel.setText(file.getName().toString());
 				frmMyMusicPlayer.setVisible(true);
 			}
 		}
-	}{;	
-			{	
-		}
-		}
 	}
 
-
+	{
+		;
+		{
+		}
+	}
+}
