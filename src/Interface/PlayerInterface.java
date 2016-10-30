@@ -6,7 +6,7 @@ package Interface;
 /**
  * Har importerar vi 
  */
-import Classes.*;
+
 
 public interface PlayerInterface {	
 	/**
