@@ -13,9 +13,6 @@ import jaco.mp3.player.MP3Player;
 
 public class PlayerMethods implements PlayerInterface{
 	private MP3Player mp3Player;
-/**
- * Har har vi en konstruktor av MP3Player	
- */
 	public PlayerMethods() {
 		
 	
@@ -34,7 +31,7 @@ public class PlayerMethods implements PlayerInterface{
 
 	
 /**
- * ?	 
+ * Har gor jag sa att play far funktionen play och sa vidare 
  */
 	public void myPlay() {
 		mp3Player.play();

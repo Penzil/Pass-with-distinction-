@@ -3,9 +3,6 @@
  * version: 1.0
  */
 package Interface;
-/**
- * Har importerar vi 
- */
 
 
 public interface PlayerInterface {	

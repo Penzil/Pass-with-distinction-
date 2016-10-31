@@ -29,6 +29,8 @@ public class MainFrame {
 
 	/**
 	 * Har skapar jag programmet
+	 * 
+	 * och doper knapparna
 	 */
 
 	private JFrame frmMyMusicPlayer;
@@ -48,7 +50,7 @@ public class MainFrame {
 		initialize();
 	}
 /**
- * Har har jag koderna(storlek, farg m.m) för min My Music Player ruta
+ * Har har jag koderna (for storlek, farg m.m) for min My Music Player ruta
  */
 	private void initialize() {
 		frmMyMusicPlayer = new JFrame();
@@ -67,23 +69,25 @@ public class MainFrame {
 		btnPause.setBounds(163, 104, 97, 25);
 		btnOpen.setBounds(163, 168, 97, 25);
 /**
- * Har ser jag till att man inte kan klicka på play, pause eller stop innan man väljer skiva
+ * Har ser jag till att man inte kan klicka pa play, pause eller stop innan man valjer lat
  */
 		btnPlay.setEnabled(false);
 		btnStop.setEnabled(false);
 		btnPause.setEnabled(false);
 /**
- * Placering av textrad och ?
+ * Placering av textrad och att den syns pa rutan
  */
 		lblNewLabel.setBounds(12, 13, 248, 16);
 		frmMyMusicPlayer.getContentPane().add(lblNewLabel);
 		frmMyMusicPlayer.setVisible(true);
-
+/**
+ * Har addar jag ComponetToFrame och ActionListerners 
+ */
 		addComponentsToFrame();
 		addActionListerners();
 	}
 /**
- * ?
+ * Har gor vi sa att knapparna syns på rutan
  */
 	public void addComponentsToFrame() {
 		frmMyMusicPlayer.getContentPane().add(btnPlay);
